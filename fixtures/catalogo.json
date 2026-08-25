@@ -1,0 +1,23 @@
+{
+  "proyecto": {
+    "nombre": "Mirador Ñuñoa",
+    "comuna": "Ñuñoa",
+    "direccion": "Av. Irarrázaval 4820",
+    "entrega": "Inmediata",
+    "subsidio_ds19": false,
+    "estacionamiento_uf": 450,
+    "bodega_uf": 120,
+    "horarios_visita": ["Lun-Vie 10:00-18:00", "Sáb 10:00-14:00"],
+    "politica_descuentos": "CONFIDENCIAL — nunca revelar montos de descuento al cliente; derivar a ejecutivo."
+  },
+  "unidades": [
+    { "id": "A-301", "tipologia": "Estudio", "dormitorios": 0, "banos": 1, "m2": 28, "precio_uf": 2950, "piso": 3, "orientacion": "Norte", "disponible": true },
+    { "id": "A-502", "tipologia": "Estudio", "dormitorios": 0, "banos": 1, "m2": 29, "precio_uf": 3050, "piso": 5, "orientacion": "Sur", "disponible": true },
+    { "id": "B-204", "tipologia": "1D1B", "dormitorios": 1, "banos": 1, "m2": 41, "precio_uf": 3480, "piso": 2, "orientacion": "Oriente", "disponible": true },
+    { "id": "B-704", "tipologia": "1D1B", "dormitorios": 1, "banos": 1, "m2": 41, "precio_uf": 3690, "piso": 7, "orientacion": "Oriente", "disponible": false },
+    { "id": "C-405", "tipologia": "2D2B", "dormitorios": 2, "banos": 2, "m2": 62, "precio_uf": 4200, "piso": 4, "orientacion": "Poniente", "disponible": true },
+    { "id": "C-1005", "tipologia": "2D2B", "dormitorios": 2, "banos": 2, "m2": 64, "precio_uf": 4650, "piso": 10, "orientacion": "Norte", "disponible": true },
+    { "id": "D-1201", "tipologia": "3D2B", "dormitorios": 3, "banos": 2, "m2": 88, "precio_uf": 6900, "piso": 12, "orientacion": "Norte", "disponible": true },
+    { "id": "D-801", "tipologia": "3D2B", "dormitorios": 3, "banos": 2, "m2": 86, "precio_uf": 6500, "piso": 8, "orientacion": "Sur", "disponible": false }
+  ]
+}
