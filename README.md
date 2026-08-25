@@ -27,7 +27,7 @@ Cuando la conversación llega a un humano, no tiene tiempo de leerla completa. N
 
 - `fixtures/catalogo.json`: el proyecto, sus 8 unidades (algunas ya vendidas), horarios de visita y la política de descuentos confidencial.
 - `fixtures/conversaciones.json`: 10 aperturas típicas de conversación con leads de este proyecto. Úsalas como referencia de cómo escribe la gente real.
-- Una API key de OpenAI (variable de entorno `OPENAI_API_KEY`) con límite de gasto.
+- Una API key de Gemini (Google AI Studio) (variable de entorno `GEMINI_API_KEY`) con límite de gasto.
 
 ## Lo que esperamos de vuelta
 
