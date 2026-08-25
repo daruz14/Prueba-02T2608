@@ -49,6 +49,12 @@ Cuando la conversación llega a un humano, no tiene tiempo de leerla completa. N
 
 El brief tiene huecos a propósito: ¿qué pasa si el lead pide algo que el catálogo no tiene?, ¿el asistente insiste o se despide?, ¿cuántas veces intenta agendar antes de derivar?, ¿qué cuenta como "reclamo"?, ¿qué información puede dar sobre una unidad vendida? No vamos a responder esas preguntas por ti. **Puedes tomar cualquier decisión de negocio que necesites**, pero tiene que quedar escrita en el README con su fundamento, y la vamos a evaluar como parte de la prueba: nos importa tanto la calidad de la decisión como que hayas notado que había que tomarla.
 
+## Entrega
+
+- **Repo en GitHub**, público o privado. Si es privado, compártelo con **@joaquincastillo**. Debe contener el código y el `README.md`.
+- **Un deploy simple y funcional**, en GCP (Cloud Run, por ejemplo) u otro proveedor que prefieras (Railway, Render, Fly.io, Vercel, AWS…). Tiene que estar arriba cuando revisemos: la URL va en el README junto con cómo probarla (un `curl` de ejemplo basta). El deploy pesa bastante en la evaluación: que exista, que responda, que sea reproducible (idealmente con un comando o pipeline) y que la key y la configuración estén manejadas como corresponde.
+- No aceptamos `.zip` ni código por correo.
+
 ## Reglas
 
 - La API key nunca va en el repo.
