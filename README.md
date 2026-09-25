@@ -1,5 +1,4 @@
-# Prueba técnica — Software Engineer Semi Senior
-
+# Prueba técnica — Software Engineer
 **Tiempo estimado: 4 horas.** Está diseñada para que **no alcances a hacer todo**: queremos ver qué priorizas, qué dejas fuera y cómo lo explicas. Recortar alcance con criterio es parte de la evaluación.
 
 ## El problema
