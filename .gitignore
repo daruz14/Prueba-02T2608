@@ -1,0 +1,9 @@
+node_modules/
+dist/
+.env
+.env.*
+!.env.example
+eval/salida/
+tmp/
+*.log
+.DS_Store
