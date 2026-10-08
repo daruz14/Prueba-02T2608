@@ -53,7 +53,7 @@ const results: {
   reservations: number;
 }[] = [];
 
-const maxRequests = Number.parseInt(process.env.EVAL_MAX_REQUESTS ?? "1", 10);
+const maxRequests = Number.parseInt(process.env.EVAL_MAX_REQUESTS ?? "2", 10);
 const onlyCase = process.env.EVAL_CASE;
 const runCases = onlyCase ? casesFile.filter((entry) => entry.id === onlyCase) : casesFile;
 
