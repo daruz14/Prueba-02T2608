@@ -11,10 +11,10 @@ function createTestAssistant() {
   return createAssistant({ responder: createResponder(config) });
 }
 
-describe("GET /healthz", () => {
+describe("GET /health", () => {
   it("reports ok with the configured backend", async () => {
     const app = await createServer(config, createTestAssistant());
-    const response = await app.inject({ method: "GET", url: "/healthz" });
+    const response = await app.inject({ method: "GET", url: "/health" });
 
     expect(response.statusCode).toBe(200);
     expect(response.json()).toMatchObject({ ok: true, backend: "fake", model: null });
@@ -153,9 +153,9 @@ describe("INGRESS_API_KEY", () => {
     await app.close();
   });
 
-  it("keeps /healthz open for readiness checks", async () => {
+  it("keeps /health open for readiness checks", async () => {
     const app = await createSecuredApp();
-    const response = await app.inject({ method: "GET", url: "/healthz" });
+    const response = await app.inject({ method: "GET", url: "/health" });
 
     expect(response.statusCode).toBe(200);
     await app.close();

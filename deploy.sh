@@ -27,14 +27,18 @@ if gcloud secrets describe "$SECRET_NAME" ${EXTRA[@]+"${EXTRA[@]}"} >/dev/null 2
   SECRET_ARGS+=(--set-env-vars "MODEL_BACKEND=${MODEL_BACKEND:-gemini}")
 fi
 
-# Optional ingress key: protects /messages and /lead/* behind an API key.
+# Optional ingress key (OPT-IN): protects /messages and /lead/* behind an API
+# key. Off by default so the service is open for anyone to try. Enable with:
+#   USE_INGRESS_KEY=1 ./deploy.sh
 # Create the secret once (the key is never committed):
 #   printf '%s' "$INGRESS_API_KEY" | gcloud secrets create mirador-ingress-key --data-file=-
 INGRESS_SECRET="${INGRESS_SECRET:-mirador-ingress-key}"
-if gcloud secrets describe "$INGRESS_SECRET" ${EXTRA[@]+"${EXTRA[@]}"} >/dev/null 2>&1; then
-  SECRET_ARGS+=(--set-secrets "INGRESS_API_KEY=${INGRESS_SECRET}:latest")
-elif [[ -n "${INGRESS_API_KEY:-}" ]]; then
-  SECRET_ARGS+=(--set-env-vars "INGRESS_API_KEY=${INGRESS_API_KEY}")
+if [[ "${USE_INGRESS_KEY:-0}" == "1" ]]; then
+  if gcloud secrets describe "$INGRESS_SECRET" ${EXTRA[@]+"${EXTRA[@]}"} >/dev/null 2>&1; then
+    SECRET_ARGS+=(--set-secrets "INGRESS_API_KEY=${INGRESS_SECRET}:latest")
+  elif [[ -n "${INGRESS_API_KEY:-}" ]]; then
+    SECRET_ARGS+=(--set-env-vars "INGRESS_API_KEY=${INGRESS_API_KEY}")
+  fi
 fi
 
 gcloud run deploy "$SERVICE" \
@@ -42,10 +46,11 @@ gcloud run deploy "$SERVICE" \
   --region "$REGION" \
   --port 8080 \
   --allow-unauthenticated \
+  --ingress all \
   ${EXTRA[@]+"${EXTRA[@]}"} \
   ${SECRET_ARGS[@]+"${SECRET_ARGS[@]}"}
 
 DESCRIBE=(run services describe "$SERVICE" --region "$REGION" --format='value(status.url)')
 URL="$(gcloud ${EXTRA[@]+"${EXTRA[@]}"} "${DESCRIBE[@]}")"
 echo "URL: $URL"
-echo "Smoke test: curl -s $URL/healthz"
+echo "Smoke test: curl -s $URL/health"

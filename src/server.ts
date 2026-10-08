@@ -36,12 +36,12 @@ export async function createServer(
   });
 
   app.addHook("onRequest", async (request, reply) => {
-    if (request.url === "/healthz") return;
+    if (request.url === "/health") return;
     if (isAuthorized(request.headers, config.INGRESS_API_KEY ?? undefined)) return;
     return reply.status(401).send({ error: "unauthorized" });
   });
 
-  app.get("/healthz", async () => ({
+  app.get("/health", async () => ({
     ok: true,
     backend: config.MODEL_BACKEND,
     model: config.MODEL_BACKEND === "gemini" ? config.GEMINI_MODEL : null,
